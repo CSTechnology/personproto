@@ -1,0 +1,11 @@
+@(user: Person.User)
+
+<h3>下記の内容で登録しますか？</h3>
+@main("登録確認画面") {
+	@helper.form(action = routes.Person.add) {
+	<p>名前：@user.name</p>
+	<p>年齢：@user.age</p>
+	<p>性別：@user.sex</p>
+        <input type="submit" value="登録">
+    }
+}

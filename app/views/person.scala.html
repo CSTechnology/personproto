@@ -1,0 +1,13 @@
+@(form: Form[Person.User])
+
+@main("たいとる") {
+	@helper.form(action = routes.Person.submitEntry) {
+        @helper.inputText(form("name"), 'size -> 10)
+        @helper.inputText(form("age"), 'size -> 3)
+        @helper.inputRadioGroup(
+            form("sex"),
+            options = Seq("男" -> "男", "女" -> "女"),
+            '_label -> "sex")
+        <input type="submit" value="確認">
+    }
+}
