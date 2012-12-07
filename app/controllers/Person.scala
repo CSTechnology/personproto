@@ -13,6 +13,10 @@ object PersonController extends Controller {
     "age" -> number.verifying("お酒は20歳から99歳まで", { age => age >= 20 && age < 100 }),
     "sex" -> text)(Person.apply)(Person.unapply))
 
+  //case class Persons(sakujo: List[String])
+
+  //val PersonsForm = Form(mapping("sakujo" -> list(text))(Persons.apply)(Persons.unapply))
+
   //登録画面初期表示
   def index = Action { implicit request =>
     Ok(views.html.person(form))
@@ -32,13 +36,14 @@ object PersonController extends Controller {
   //一覧表示
   def list = Action {
     val persons = PersonDAO.all()
-    println(persons)
     Ok(views.html.person_list(persons))
   }
 
-  def delete = Action {implicit request =>
-    val hoge = form.bindFromRequest.get
-    println(hoge)
+  def delete = Action { implicit request =>
+    /*val persons = PersonsForm.bindFromRequest.get
+    persons.foreach { person =>
+    	PersonDAO.delete(person)
+    }*/
     Ok("削除")
   }
   //編集
