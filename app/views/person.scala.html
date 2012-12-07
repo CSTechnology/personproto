@@ -1,7 +1,7 @@
-@(form: Form[Person.User])
+@(form: Form[Person])
 
 @main("たいとる") {
-	@helper.form(action = routes.Person.submitEntry) {
+	@helper.form(action = routes.PersonController.submitEntry) {
         @helper.inputText(form("name"), 'size -> 10)
         @helper.inputText(form("age"), 'size -> 3)
         @helper.inputRadioGroup(

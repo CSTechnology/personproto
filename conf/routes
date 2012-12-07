@@ -3,11 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Person.index
-GET     /person                     controllers.Person.index
-GET     /person/entry               controllers.Person.index
-POST    /person/submitEntry         controllers.Person.submitEntry
-POST    /person/add                 controllers.Person.add
+GET     /                           controllers.PersonController.index
+GET     /person                     controllers.PersonController.index
+GET     /person/entry               controllers.PersonController.index
+POST    /person/submitEntry         controllers.PersonController.submitEntry
+POST    /person/add                 controllers.PersonController.add
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
