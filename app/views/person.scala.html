@@ -8,6 +8,9 @@
             form("sex"),
             options = Seq("男" -> "男", "女" -> "女"),
             '_label -> "sex")
-        <input type="submit" value="確認">
+        <input type="submit" value="登録">
     }
+    <br>
+    @helper.form(action = routes.PersonController.list) {
+        <input type="submit" value="一覧画面へ戻る">}
 }

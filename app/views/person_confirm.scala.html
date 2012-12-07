@@ -2,10 +2,10 @@
 
 <h3>下記の内容で登録しました。</h3>
 @main("登録完了画面") {
-	@helper.form(action = routes.PersonController.index) {
+	@helper.form(action = routes.PersonController.list) {
 	<p>名前：@person.name</p>
 	<p>年齢：@person.age</p>
 	<p>性別：@person.sex</p>
-        <input type="submit" value="戻る">
+        <input type="submit" value="一覧画面へ戻る">
     }
 }
