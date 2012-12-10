@@ -34,7 +34,6 @@ object PersonController extends Controller {
         })
   }
 
-
   //一覧表示
   def list = Action {
     val persons = PersonDAO.all()
