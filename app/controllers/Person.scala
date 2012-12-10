@@ -39,8 +39,7 @@ object PersonController extends Controller {
     val persons = PersonDAO.all()
     Ok(views.html.person_list(persons))
   }
-  
-  
+    
   //削除
   def delete = Action { implicit request =>
     val delnames = PersonsForm.bindFromRequest.data
@@ -54,5 +53,4 @@ object PersonController extends Controller {
   def edit(name: String) = Action {
     Ok("編集")
   }
-
 }
