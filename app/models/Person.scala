@@ -13,13 +13,20 @@ object PersonDAO extends SalatDAO[models.Person, Int](collection = MongoConnecti
   def all(): List[Person] = PersonDAO.find(MongoDBObject.empty).toList
 
   def create(person: Person) {
-    PersonDAO.insert(Person(name = person.name, age = person.age, person.sex))
+    //PersonDAO.insert(Person(name = person.name, age = person.age, person.sex))
+    PersonDAO.insert(person)
   }
   
   def delete(name: String) {
     PersonDAO.remove(MongoDBObject("name" -> name))
   }
 
-  def update = {
+  def select(name: String):List[Person] = {
+    PersonDAO.findOne(MongoDBObject("name" -> name)).toList
+  } 
+    
+  def updating(person: Person,oldname:String) = {
+    val psersonDBObject = grater[Person].asDBObject(person)
+    PersonDAO.update(MongoDBObject("name" -> oldname),psersonDBObject)
   }
 }

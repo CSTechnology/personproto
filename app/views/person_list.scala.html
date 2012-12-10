@@ -6,7 +6,7 @@
 		@persons.map { p =>
 		<tr>
 		  <td><INPUT type="checkbox" name="@p.name" value="@p.name"></td>
-		  <td><a href="">@p.name</a></td>
+		  <td><a href=/person/@p.name/edit>@p.name</a></td>
 		  <td>@p.age</td>
 		  <td>@p.sex</td>
 		</tr>

@@ -16,8 +16,9 @@ object PersonController extends Controller {
   case class Persons(sakujo: String)
 
   val PersonsForm = Form(mapping("sakujo" -> text)(Persons.apply)(Persons.unapply))
-    //val PersonsForm = Form(mapping("nozao" -> text))
 
+  var oldname:String = ""
+  
   //登録画面初期表示
   def index = Action { implicit request =>
     Ok(views.html.person(form))
@@ -51,6 +52,20 @@ object PersonController extends Controller {
   
   //編集
   def edit(name: String) = Action {
-    Ok("編集")
+    oldname = name
+    val person = PersonDAO.select(name)	
+    val filledForm = form.fill(Person(person(0).name,person(0).age,person(0).sex))
+    Ok(views.html.person_edit(filledForm))
+  }
+  
+  //更新
+  def submitUpdate = Action { implicit request =>
+    form.bindFromRequest.fold(
+      errors => BadRequest(views.html.person_edit(errors)),
+      person =>
+        {
+          PersonDAO.updating(person,oldname)
+          Redirect(routes.PersonController.list) 
+        })
   }
 }

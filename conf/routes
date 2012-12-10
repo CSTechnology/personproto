@@ -10,6 +10,7 @@ POST    /person/submitEntry         controllers.PersonController.submitEntry
 GET     /person/list		        controllers.PersonController.list
 GET     /person/:name/edit		    controllers.PersonController.edit(name:String)
 POST     /person/delete		controllers.PersonController.delete
+POST     /person/submitUpdate		controllers.PersonController.submitUpdate
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

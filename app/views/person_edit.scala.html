@@ -1,0 +1,16 @@
+@(form: Form[Person])
+
+@main("たいとる") {
+	@helper.form(action = routes.PersonController.submitUpdate) {
+        @helper.inputText(form("name"), 'size -> 10)
+        @helper.inputText(form("age"), 'size -> 3)
+        @helper.inputRadioGroup(
+            form("sex"),
+            options = Seq("男" -> "男", "女" -> "女"),
+            '_label -> "sex")
+        <input type="submit" value="変更">
+    }
+    <br>
+    @helper.form(action = routes.PersonController.list) {
+        <input type="submit" value="一覧画面へ戻る">}
+}

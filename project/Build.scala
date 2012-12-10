@@ -10,6 +10,8 @@ object personprotoBuild extends Build {
 	val appDependencies = Seq(
 		  "com.mongodb.casbah" %% "casbah" % "2.1.5-1",
 	      "com.novus" %% "salat-core" % "0.0.8-SNAPSHOT",
+		  //"com.novus" %% "salat" % "1.9.1",
+		  //"com.novus" %% "salat" % "0.0.8",
 	      "org.scalatest" %% "scalatest" % "2.0.M5",
 	      "org.scala-tools.testing" % "specs_2.8.0" % "1.6.5"
      )
