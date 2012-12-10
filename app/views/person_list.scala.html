@@ -1,14 +1,16 @@
 @(persons: List[Person])
+
 @main("登録完了画面") {
 	@helper.form(action = routes.PersonController.delete) {
 	<table border=1>
 		@persons.map { p =>
 		<tr>
-		  <td><INPUT type="checkbox" name="sakujo" value="@p.name"></td>
+		  <td><INPUT type="checkbox" name="@p.name" value="@p.name"></td>
 		  <td><a href="">@p.name</a></td>
 		  <td>@p.age</td>
 		  <td>@p.sex</td>
 		</tr>
+		
 		} 
 	</table>
 	<p><input type="submit" value="一覧から削除する"></p>
